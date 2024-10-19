@@ -1,10 +1,12 @@
-[gd_scene load_steps=22 format=4 uid="uid://cdacgpbrirdhd"]
+[gd_scene load_steps=24 format=4 uid="uid://cdacgpbrirdhd"]
 
 [ext_resource type="Script" path="res://addons/qodot/src/nodes/qodot_map.gd" id="1_33dab"]
+[ext_resource type="PackedScene" uid="uid://owrphymnckjc" path="res://enemy.tscn" id="1_mpcgc"]
 [ext_resource type="Resource" uid="uid://c36hv0o6g0udo" path="res://addons/qodot/game_definitions/fgd/qodot_fgd.tres" id="2_uh4hj"]
 [ext_resource type="Texture2D" uid="uid://ghaeiyehi6k5" path="res://textures/Grass_01-256x256.png" id="3_f3isc"]
 [ext_resource type="Texture2D" uid="uid://cuh64kgw3uwvd" path="res://textures/Bricks_01-256x256.png" id="4_ila8p"]
 [ext_resource type="Texture2D" uid="uid://bysk3ho50jvkb" path="res://textures/Tile_17-256x256.png" id="5_e8s8v"]
+[ext_resource type="PackedScene" uid="uid://bdlnecewb8fav" path="res://player.tscn" id="6_xqbhu"]
 
 [sub_resource type="Environment" id="Environment_rfxcl"]
 background_mode = 1
@@ -94,6 +96,21 @@ points = PackedVector3Array(-5.5, 7, 2.5, -5.5, 7, 2.5, -7, 1, 1, -4, 1, 1, -7, 
 
 [node name="World" type="Node3D"]
 
+[node name="Enemy" parent="." instance=ExtResource("1_mpcgc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, -7)
+
+[node name="Enemy2" parent="." instance=ExtResource("1_mpcgc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.47083, 2, 10.4066)
+
+[node name="Enemy3" parent="." instance=ExtResource("1_mpcgc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9, 2, -14.0418)
+
+[node name="Enemy4" parent="." instance=ExtResource("1_mpcgc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, -14.0337)
+
+[node name="Enemy5" parent="." instance=ExtResource("1_mpcgc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0331, 2, -1.33932)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_rfxcl")
 
@@ -141,3 +158,6 @@ shape = SubResource("ConvexPolygonShape3D_v3w4c")
 
 [node name="entity_0_brush_8_collision_shape" type="CollisionShape3D" parent="QodotMap/entity_0_worldspawn"]
 shape = SubResource("ConvexPolygonShape3D_h1fmr")
+
+[node name="Player" parent="." instance=ExtResource("6_xqbhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32347, 0)
